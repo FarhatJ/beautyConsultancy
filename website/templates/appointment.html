@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}VJ | Appointment{% endblock %}
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'website/img/bg-21.jpg' %}'); height:300px" data-stellar-background-ratio="0.5">
+       <div class="overlay" style="height: 300px;"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight justify-content-center">
+           <div class="col-md-9 ftco-animate" style="margin-top:200px">
+            <h2 class="mb-0 bread">Appointment</h2>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Set Appointment <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact-section bg-light">
+      <div class="container">
+          <center>
+              <h1>Review your Information:</h1>
+              <strong>Your Name: </strong>{{ your_name }} <br/>
+              <strong>Email: </strong>{{ your_mail }}<br/>
+              <strong>Schedule an Appointment for: </strong>  {{ appointment_type }}<br/>
+              <strong>Appointment Day: </strong>{{ appointment_date}}<br/>
+               <strong>Appointment Time: </strong>{{appointment_time}}<br/>
+              <strong>Phone: </strong>{{ your_phone }} <br/>
+              <br/><br/>
+              <strong>Note:</strong>
+              We will contact you shortly to confirm your appointment.
+      </center>
+      </div>
+    </section>
+
+<br/><br/><br/><br/>
+{% endblock %}
