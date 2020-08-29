@@ -269,13 +269,13 @@
     	</div>
     </section>
 
-    <section class="ftco-section ftco-no-pt ftco-booking" id="setappointment">
+    <section class="ftco-section ftco-no-pt ftco-booking">
     	<div class="container-fluid px-0">
     		<div class="row no-gutters d-md-flex justify-content-end">
     			<div class="one-forth d-flex align-items-end">
     				<div class="text">
     					<div class="overlay"></div>
-    					<div class="appointment-wrap">
+    					<div class="appointment-wrap" id="setappointment">
     						<span class="subheading">Reservation</span>
 								<h3 class="mb-2">Make an Appointment for </h3>
 		    				<form action="{% url 'appointment' %}" method="post"  class="appointment-form">
@@ -297,6 +297,7 @@
 								<div class="select-wrap">
 		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 		                      <select name="appointment-type" class="form-control">
+								<option value="#" selected>Appointment type</option>
 		                      	<option value="Makeup Tips">Makeup</option>
 		                        <option value="Hair Tips">Hair Care</option>
 		                        <option value="Nail Art">Nail Art</option>
