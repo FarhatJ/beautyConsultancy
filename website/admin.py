@@ -1,5 +1,16 @@
 from django.contrib import admin
-from .models import Post, BlogComment
+from .models import Post, Category
 
-# Register your models here.
-admin.site.register((Post, BlogComment))
+
+class CategoryAdmin(admin.ModelAdmin):
+    exclude = ('slug',)
+
+
+admin.site.register(Category,CategoryAdmin)
+
+
+class PostAdmin(admin.ModelAdmin):
+    exclude = ('slug',)
+
+
+admin.site.register(Post, PostAdmin)

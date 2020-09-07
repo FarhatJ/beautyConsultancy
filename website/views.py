@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 from django.views.generic import ListView, DetailView
-from .models import Post, BlogComment
+from .models import Post, Category, BlogComment
 
 # Create your views here.
 
@@ -58,11 +60,6 @@ def appointment(request):
         return render(request, 'home.html', {})
 
 
-def CategoryView(request, cats):
-    category_posts = Post.objects.filter(category=cats)
-    return render(request, 'categories.html', {'cats': cats, 'category_posts': category_posts})
-
-
 def postComment(request):
     if request.method == 'POST':
         user_email = request.POST['user-email']
@@ -70,14 +67,32 @@ def postComment(request):
         return render(request, 'article_details.html', {'user_email':user_email, 'comment_text ':comment_text })
 
 
+def Search(request):
+    template = 'blog.html'
+    query = request.GET.get('q')
+    results = Post.objects.filter(Q(title__icontains=query) | Q(body__icontains=query))
+
+
 class BlogView(ListView):
     model = Post
     template_name = 'blog.html'
     ordering = ['-id']
+    paginate_by = 10
 
 
-class ArticleDetailView(DetailView):
+class PostDetailView(DetailView):
     model = Post
     template_name = 'article_details.html'
+
+
+def category_detail(request, slug):
+    template = 'category_detail.html'
+    category = get_object_or_404(Category, slug=slug)
+    post = Post.objects.filter(category=category)
+    context = {
+        'category': category,
+        'post': post,
+    }
+    return render(request, template, context)
 
 

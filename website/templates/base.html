@@ -43,7 +43,7 @@
 	        <ul class="navbar-nav ml-auto">
                 {% with url_name=request.resolver_match.url_name %}
 	        	<li class="nav-item {% if url_name == 'home' %}active{% endif %}"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
-<!--	        	<li class="nav-item {% if url_name == 'blog' %}active{% endif %}"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>-->
+	        	<li class="nav-item {% if url_name == 'blog' %}active{% endif %}"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
 	            <li class="nav-item {% if url_name == 'contact' %}active{% endif %}"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
                 {% endwith %}
 	        </ul>
@@ -87,7 +87,7 @@
               <h2 class="ftco-heading-2">Links</h2>
               <ul class="list-unstyled">
                 <li><a href="{% url 'home' %}" class="py-2 d-block">Home</a></li>
-<!--                <li><a href="{% url 'blog' %}" class="py-2 d-block">Blog</a></li>-->
+                <li><a href="{% url 'blog' %}" class="py-2 d-block">Blog</a></li>
                 <li><a href="{% url 'contact' %}" class="py-2 d-block">Contact</a></li>
               </ul>
             </div>
