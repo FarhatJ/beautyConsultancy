@@ -8149,10 +8149,10 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f18c8e; }
+  color: #c3070a; }
   a:hover, a:focus {
     text-decoration: none;
-    color: #f18c8e;
+    color: #c3070a;
     outline: none !important; }
 
 h1, h2, h3, h4, h5,
@@ -10131,3 +10131,10 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}

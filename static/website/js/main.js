@@ -339,10 +339,18 @@
 
   $('.appointment_date').datepicker({
 	  'format': 'm/d/yyyy',
+      'startDate': new Date(),
 	  'autoclose': true
 	});
 
-	$('.appointment_time').timepicker();
+	$('.appointment_time').timepicker({
+                'minTime': '10:30 AM',
+                'maxTime': '09:30 PM',
+                    'onSelect': function() {
+
+                    $('#endTime').timepicker('option', 'minTime', $(this).val());
+              }
+            });
 
 
 })(jQuery);

@@ -51,7 +51,7 @@
           			<span class="icon-globe"></span>
           		</div>
           		<h3 class="mb-4">Youtube</h3>
-	            <p><a href="https://www.youtube.com/channel/UCo24ZyqAKCmIgnegKNH7wmg">https://www.youtube.com/channel/UCo24ZyqAKCmIgnegKNH7wmg</a></p>
+	            <p><a href="https://bit.ly/325THlP">Make_A_Wvish</a></p>
 	          </div>
           </div>
         </div>
@@ -68,13 +68,14 @@
       <div class="container-fluid px-0">
         <div class="row no-gutters block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="{% url 'contact' %}" method="POST" class="bg-light p-5 contact-form">
+            <form action="{% url 'contact' %}" method="POST" name="contact-form" class="bg-light p-5 contact-form">
                 {% csrf_token %}
               <div class="form-group">
-                <input type="text" name="message-name" class="form-control" placeholder="Your Name">
+                <input type="text" name="message-name" class="form-control" placeholder="Your Name" required>
               </div>
               <div class="form-group">
-                <input type="email" name="message-email" class="form-control" placeholder="Your Email">
+                <input type="email" name="message-email" class="form-control"
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Your email address is not in a correct format." placeholder="Your Email" required>
               </div>
               <div class="form-group">
                 <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>

@@ -62,20 +62,12 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-<!--              <h2 class="ftco-heading-2 logo">Vishakha Consultancy</h2>-->
-<!--              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>-->
-<!--              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">-->
-<!--                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>-->
-<!--                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>-->
-<!--                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>-->
-<!--              </ul>-->
             </div>
           </div>
           <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-3">
-              <h2 class="ftco-heading-2 logo">Make A Wvish</h2>
-                <p>   <br/></p>
-                <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+            <div class="ftco-footer-widget mb-4">
+              <h2 style="padding-left: 30px;" class="ftco-heading-2 logo">Make A Wvish</h2>
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                 <li class="ftco-animate"><a target="_blank" href="https://www.youtube.com/channel/UCo24ZyqAKCmIgnegKNH7wmg"><span class="icon-youtube"></span></a></li>
                 <li class="ftco-animate"><a target="_blank" href="https://www.facebook.com/make_a_wvish-105003241039260/"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/make_a_vwish/?igshid=1muajuqylnb5r"><span class="icon-instagram"></span></a></li>
@@ -92,18 +84,6 @@
               </ul>
             </div>
           </div>
-<!--          <div class="col-md">-->
-<!--            <div class="ftco-footer-widget mb-4">-->
-<!--            	<h2 class="ftco-heading-2">Have a Questions?</h2>-->
-<!--            	<div class="block-23 mb-3">-->
-<!--	              <ul>-->
-<!--	                <li><span class="icon icon-map-marker"></span><span class="text">Ahmedabad, Gujarat</span></li>-->
-<!--	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>-->
-<!--	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">makeawvish@gmail.com</span></a></li>-->
-<!--	              </ul>-->
-<!--	            </div>-->
-<!--            </div>-->
-<!--          </div>-->
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
@@ -139,19 +119,40 @@
   <script src="{% static 'website/js/google-map.js' %}"></script>
   <script src="{% static 'website/js/main.js' %}"></script>
   <script>
-$(document).ready(function () {
-    $('.nav-toggle').click(function () {
-        var collapse_content_selector = $(this).attr('href');
-        var toggle_switch = $(this);
-        $(collapse_content_selector).toggle(function () {
-            if ($(this).css('display') == 'none') {
-                toggle_switch.html('Read More');
-            } else {
-                toggle_switch.html('Read Less');
-            }
-        });
+$(document).ready(function() {
+    // Configure/customize these variables.
+    var showChar = 100;  // How many characters are shown by default
+    var ellipsestext = "...";
+    var moretext = "Show more >";
+    var lesstext = "Show less";
+
+    $('.more').each(function() {
+        var content = $(this).html();
+
+        if(content.length > showChar) {
+
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext.fontcolor("black") + '</a></span>';
+
+            $(this).html(html);
+        }
+
     });
 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
 });
 </script>
   </body>
