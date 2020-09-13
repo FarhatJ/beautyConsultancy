@@ -3,40 +3,7 @@
 {% block title %}HOME{% endblock %}
 {% block content %}
 
-<script>
-    document.getElementById('vid').play();
-</script>
-
-
 <section id="home-section" class="hero" style="background-image: url({% static 'website/img/bg.jpg' %});" data-stellar-background-ratio="0.5">
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin-top: 70px; margin-left: 20px;">
-      Click me for your Wish
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div style="-webkit-box-orient: vertical;">
-<!--          <div class="modal-header">-->
-<!--            <h5 class="modal-title" id="exampleModalLabel">Something beautiful happened Today!</h5>-->
-<!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--              <span aria-hidden="true">&times;</span>-->
-<!--            </button>-->
-<!--          </div>-->
-<!--          <div class="modal-body">-->
-
-            <video style="margin-right: 20px;" width="620" height="440" loop controls autoplay muted id="vid">
-              <source src="{% static 'website/video/birthday1.mp4' %}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-<!--          </div>-->
-        </div>
-      </div>
-    </div>
-
-
     <div class="home-slider owl-carousel">
         <div class="slider-item js-fullheight">
             <div class="overlay"></div>
